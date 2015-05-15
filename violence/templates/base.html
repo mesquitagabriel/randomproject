@@ -1,0 +1,234 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quantitative study of the violence reflex on the brazilian media">
+    <meta name="author" content="">
+    <meta name="keywords" content="violence, brazil, quantitative, media, reflex">
+    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+
+    <title>
+      Violence in the media | {% block title %}{% endblock %}
+    </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/theme.css" %}" rel="stylesheet">
+    <link href="{% static "css/bootstrap-reset.css" %}" rel="stylesheet">
+
+    <!--external css-->
+    <link href="{% static "assets/font-awesome/css/font-awesome.css" %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static "css/flexslider.css" %}"/>
+    <link href="{% static "assets/bxslider/jquery.bxslider.css" %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static "css/animate.css" %}">
+
+    {% block css %}{% endblock %}
+
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+
+
+    <!-- Custom styles for this template -->
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="{% static "css/style-responsive.css" %}" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+    <script src="{% static "js/html5shiv.js" %}">
+    </script>
+    <script src="{% static "js/respond.min.js" %}">
+    </script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <!--header start-->
+    <header class="head-section">
+      <div class="navbar navbar-default navbar-static-top container">
+          <div class="navbar-header">
+              <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/violence/"><span>Violence</span> in the media</a>
+          </div>
+          <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                  <li>
+                      <a href="/violence/">Home</a>
+                  </li>
+                  <li class="dropdown">
+                      <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover=
+                      "dropdown" data-toggle="dropdown" href="#">Graphics<i class="fa fa-angle-down"></i>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li>
+                              <a href="typography.html">Word Cloud</a>
+                          </li>
+                          <li>
+                              <a href="#">Bar Chart</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="contact.html">Contact</a>
+                  </li>
+                  <li><input class="form-control search" placeholder=" Search" type="text"></li>
+              </ul>
+          </div>
+      </div>
+    </header>
+    <!--header end-->
+    {% block breadcrumbs %}{% endblock %}
+
+    {% block content %}{% endblock %}
+
+    <!--container end-->
+
+    <!--footer start-->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-3 address wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">
+            <h1>
+              contact info
+            </h1>
+            <address>
+              <p><i class="fa fa-home pr-10"></i>Address: Praia de Botafogo, 190</p>
+              <p><i class="fa fa-globe pr-10"></i>Brazil, Rio de Janeiro </p>
+              <p><i class="fa fa-phone pr-10"></i>Phone : +55 (21) 3799-5917 </p>
+              <p><i class="fa fa-envelope pr-10"></i>Email :   <a href="mailto:emap@fgv.br">emap@fgv.br</a></p>
+            </address>
+          </div>
+          <div class="col-lg-3 col-sm-3 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s">
+            <h1>latest tweet</h1>
+              <div class="tweet-box">
+                <i class="fa fa-twitter"></i>
+                <em>
+                  Please follow
+                  <a href="javascript:;">@example</a>
+                  for all future updates of us!
+                  <a href="javascript:;">twitter.com/acme</a>
+                </em>
+              </div>
+              <div class="tweet-box">
+                <i class="fa fa-twitter"></i>
+                <em>
+                  Please follow
+                  <a href="javascript:;">@example</a>
+                  for all future updates of us!
+                  <a href="javascript:;">twitter.com/acme</a>
+                </em>
+              </div>
+              <div class="tweet-box">
+                <i class="fa fa-twitter"></i>
+                <em>
+                  Please follow
+                  <a href="javascript:;">@example</a>
+                  for all future updates of us!
+                  <a href="javascript:;">twitter.com/acme</a>
+                </em>
+              </div>
+          </div>
+          <div class="col-lg-3 col-sm-3">
+            <div class="page-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s">
+              <h1>
+                Our Company
+              </h1>
+              <ul class="page-footer-list">
+                <li>
+                  <i class="fa fa-angle-right"></i>
+                  <a href="about.html">About Us</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i>
+                  <a href="faq.html">Support</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i>
+                  <a href="service.html">Service</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i>
+                  <a href="privacy-policy.html">Privacy Policy</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i>
+                  <a href="career.html">We are Hiring</a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right"></i>
+                  <a href="terms.html">Term & condition</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-3">
+            <div class="text-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".7s">
+              <h1>
+                Text Widget
+              </h1>
+              <p>
+                This is a text widget.Lorem ipsum dolor sit amet.
+                This is a text widget.Lorem ipsum dolor sit amet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer end -->
+    <!--small footer start -->
+    <footer class="footer-small">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6 pull-right">
+                    <ul class="social-link-footer list-unstyled">
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".1s"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".2s"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".3s"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".4s"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".5s"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".6s"><a href="#"><i class="fa fa-skype"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".7s"><a href="#"><i class="fa fa-github"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".8s"><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                  <div class="copyright">
+                    <p>EMAp | Fundação Getulio Vargas</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--small footer end-->
+
+    <!-- js placed at the end of the document so the pages load faster-->
+    <script src="{% static "js/jquery-1.8.3.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/hover-dropdown.js" %}"></script>
+    <script type="text/javascript" src="{% static "assets/bxslider/jquery.bxslider.js" %}"></script>
+
+    {% block js %}{% endblock %}
+
+    <!--common script for all pages-->
+    <script src="{% static "js/common-scripts.js" %}"></script>
+
+    <script src="{% static "js/wow.min.js" %}"></script>
+    <script>
+        wow = new WOW(
+          {
+            boxClass:     'wow',      // default
+            animateClass: 'animated', // default
+            offset:       0          // default
+          }
+        )
+        wow.init();
+    </script>
+
+  </body>
+</html>
