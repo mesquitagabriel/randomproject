@@ -4,7 +4,6 @@ from django.views.generic.base import TemplateView, View
 from django.template import Context
 from django.http import HttpResponse
 from pymongo import MongoClient
-from pymongo import MongoClient
 #from nltk.corpus import stopwords
 from collections import Counter
 import json
