@@ -37,37 +37,37 @@ var svg = d3.select("body").selectAll(".barchart").append("svg")
 
 svg.call(tip);
 
-d3.tsv("{{ data }}", type, function(error, data) {
-  x.domain(data.map(function(d) { return d.dataX; }));
-  y.domain([0, d3.max(data, function(d) { return d.dataY; })]);
+var data = {{ data|safe }}
+console.log(data);
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+x.domain(data.map(function(d) { return d.dataX; }));
+y.domain([0, d3.max(data, function(d) { return d.dataY; })]);
 
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis)
     .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("{{ label }}");
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("{{ label }}");
 
-  svg.selectAll(".bar")
-      .data(data)
+svg.selectAll(".bar")
+    .data(data)
     .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.dataX); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.dataY); })
-      .attr("height", function(d) { return height - y(d.dataY); })
-      .on('mouseover', tip.show)
-      .on('mouseout', tip.hide)
-
-});
+    .attr("class", "bar")
+    .attr("x", function(d) { return x(d.dataX); })
+    .attr("width", x.rangeBand())
+    .attr("y", function(d) { return y(d.dataY); })
+    .attr("height", function(d) { return height - y(d.dataY); })
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide)
 
 function type(d) {
   d.dataY = +d.dataY;

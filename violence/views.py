@@ -44,6 +44,7 @@ class HomePageView(TemplateView):
         suma = float(sum([pair[1] for pair in result]))
         result = [{'text': pair[0], 'size': int(pair[1]*1000/suma)} for pair in result]
         context.update({
-            'data_cloud': json.dumps(result)
+            'data_cloud': json.dumps(result),
+            'data_hist': json.dumps([{'dataX':'H', 'dataY':0.6}, {'dataX':'G', 'dataY':0.4}])
         })
         return context

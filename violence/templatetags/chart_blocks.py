@@ -5,7 +5,7 @@ register = template.Library()
 
 @register.inclusion_tag("tags/barchart.html")
 def barchart(data, label, chartname=""):
-    return {"data": '/static/data/' + data,
+    return {"data": data,
             "name": chartname,
             "label": label
     }

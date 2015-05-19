@@ -4,7 +4,7 @@
 {% block title %}Home{% endblock %}
 
 {% block css %}
-<script src="{% static 'js/d3.v3.min.js' %}"></script>
+<script src="{% static 'js/d3.js' %}"></script>
 <script src="{% static 'js/d3.tip.v0.6.3.js' %}"></script>
 <script src="{% static 'js/d3.layout.cloud.js' %}"></script>
 
@@ -19,7 +19,7 @@
             <h4>
               Number of articles | Latest 30 days
             </h4>
-            {% barchart "latest30.tsv" "Articles" "articles30" %}
+            {% barchart data_hist|safe "Articles" "articles30" %}
           </div>
         </div>
         <div class="col-lg-6 col-sm-6">
