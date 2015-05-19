@@ -4,11 +4,12 @@
 {% block title %}Home{% endblock %}
 
 {% block css %}
-<script src="{% static 'js/d3.js' %}"></script>
-<script src="{% static 'js/d3.tip.v0.6.3.js' %}"></script>
-<script src="{% static 'js/d3.layout.cloud.js' %}"></script>
+    <script src="{% static 'js/d3.js' %}"></script> {# Apenas para testes #}
+    {#<script src="{% static 'js/d3.min.js' %}"></script> #}
+    <script src="{% static 'js/d3.tip.v0.6.3.js' %}"></script>
+    <script src="{% static 'js/d3.layout.cloud.js' %}"></script>
 
-<link href="{% static "css/charts/barchart.css" %}" rel="stylesheet">
+    <link href="{% static "css/charts/barchart.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
