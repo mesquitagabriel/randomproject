@@ -4,6 +4,8 @@ from django.views.generic.base import TemplateView, View
 from django.template import Context
 from django.http import HttpResponse
 from pymongo import MongoClient
+import datetime
+import pandas as pd
 #from nltk.corpus import stopwords
 from collections import Counter
 import json
@@ -42,9 +44,26 @@ class HomePageView(TemplateView):
             if count == 10:
                 break
         suma = float(sum([pair[1] for pair in result]))
-        result = [{'text': pair[0], 'size': int(pair[1]*1000/suma)} for pair in result]
+        data_cloud = [{'text': pair[0], 'size': int(pair[1]*1000/suma)} for pair in result]
+
+        enddata = datetime.datetime.now() - datetime.timedelta(days=70)
+        startdata = enddata.replace(hour=0, minute=0, second=0, microsecond=0) - datetime.timedelta(days=29) #last 30 days
+
+        df = pd.DataFrame(columns=['data','count'])
+        for article in collection.find({'published':{'$gte': startdata, '$lte': enddata}}):
+            df2 = pd.DataFrame([[article['published'], 1]], columns=['data','count'])
+            df = df.append(df2)
+        df = df.set_index('data')
+        df = df.resample(rule = 'D', how = 'sum')
+
+        data_hist = []
+        for i, v in df.to_dict()['count'].items():
+            t= pd.to_datetime(i)
+            t = t.strftime('%Y.%m.%d')
+            data_hist.append({'dataX':t, 'dataY':v})
+
         context.update({
-            'data_cloud': json.dumps(result),
-            'data_hist': json.dumps([{'dataX':'H', 'dataY':0.6}, {'dataX':'G', 'dataY':0.4}])
+            'data_cloud': json.dumps(data_cloud),
+            'data_hist': json.dumps(data_hist)
         })
         return context
