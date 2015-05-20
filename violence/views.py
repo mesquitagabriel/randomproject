@@ -48,7 +48,7 @@ class HomePageView(TemplateView):
         data_cloud = [{'text': pair[0], 'size': int(pair[1]*1000/suma)} for pair in result]
 
         enddata = datetime.datetime.now() - datetime.timedelta(days=70)
-        startdata = enddata.replace(hour=0, minute=0, second=0, microsecond=0) - datetime.timedelta(days=29) #last 30 days
+        startdata = enddata.replace(hour=0, minute=0, second=0, microsecond=0) - datetime.timedelta(days=14) #last 15 days
 
         df = pd.DataFrame(columns=['data','count'])
         for article in collection.find({'published':{'$gte': startdata, '$lte': enddata}}):
@@ -59,7 +59,9 @@ class HomePageView(TemplateView):
 
         data_hist = []
         for row in df.to_csv().split('\n')[1:-1]:
-            data_hist.append({'dataX':row.split(',')[0][8:], 'dataY':row.split(',')[1]})
+            d = row.split(',')[0]
+            d = datetime.datetime.strptime(d,'%Y-%m-%d')
+            data_hist.append({'dataX':d.strftime('%d/%m'), 'dataY':int(row.split(',')[1][0:-2])})
 
         context.update({
             'data_cloud': json.dumps(data_cloud),
