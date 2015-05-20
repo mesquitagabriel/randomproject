@@ -22,7 +22,8 @@ class HomePageView(TemplateView):
         collection = db.frases
 
         words = []
-        for article in collection.find().limit(1000):
+        articles = collection.find().limit(1000)
+        for article in articles:
             for frase in article['frases']:
                 words += frase
 
