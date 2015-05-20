@@ -58,10 +58,8 @@ class HomePageView(TemplateView):
         df = df.resample(rule = 'D', how = 'sum')
 
         data_hist = []
-        for i, v in df.to_dict()['count'].items():
-            t= pd.to_datetime(i)
-            t = t.strftime('%Y.%m.%d')
-            data_hist.append({'dataX':t, 'dataY':v})
+        for row in df.to_csv().split('\n')[1:-1]:
+            data_hist.append({'dataX':row.split(',')[0][8:], 'dataY':row.split(',')[1]})
 
         context.update({
             'data_cloud': json.dumps(data_cloud),
