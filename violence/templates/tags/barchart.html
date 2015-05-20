@@ -38,7 +38,6 @@ var svg = d3.select("body").selectAll(".barchart").append("svg")
 svg.call(tip);
 
 var data = {{ data|safe }}
-console.log(data);
 
 x.domain(data.map(function(d) { return d.dataX; }));
 y.domain([0, d3.max(data, function(d) { return d.dataY; })]);
