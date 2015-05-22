@@ -7,9 +7,10 @@ db = client.test
 collection = db.frases
 
 enddata = datetime.datetime.now() - datetime.timedelta(days=70)
-startdata = enddata.replace(hour=0, minute=0, second=0, microsecond=0) - datetime.timedelta(days=2) #last 3 days
+startdata = enddata.replace(hour=0, minute=0, second=0, microsecond=0) - datetime.timedelta(days=14) #last 15 days
 
 df = pd.DataFrame(columns=['data','count'])
+collection.find({'published':{'$gte': startdata, '$lte': enddata}})
 for article in collection.find({'published':{'$gte': startdata, '$lte': enddata}}):
 	df2 = pd.DataFrame([[article['published'], 1]], columns=['data','count'])
 	df = df.append(df2)
